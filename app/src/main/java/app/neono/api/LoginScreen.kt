@@ -1,5 +1,7 @@
 package app.neono.api
 
+import app.neono.api.UserRepository
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -11,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
@@ -66,6 +69,10 @@ fun LoginScreen(onLoginSuccess: (FirebaseUser) -> Unit) {
                         } else {
                             auth.signInWithEmailAndPassword(email, password).await()
                         }
+                        // Generate ID unik & simpan
+                        val userRepo = UserRepository()
+                        val code = userRepo.generateUserCode()
+                        userRepo.saveUserCode(result.user!!.uid, code)
                         onLoginSuccess(result.user!!)
                     } catch (e: Exception) {
                         error = e.message
