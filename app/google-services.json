@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "393975135156",
+    "project_id": "javin-chat",
+    "storage_bucket": "javin-chat.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393975135156:android:e0754315e31b7fcfb7d0e1",
+        "android_client_info": {
+          "package_name": "app.javin.codex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDklAvzPZlcgftTa2dqLnQDO3i9bXYvKug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
