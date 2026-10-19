@@ -1,5 +1,7 @@
 package app.neono.api
 
+import android.widget.Toast
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,6 +13,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -89,7 +92,13 @@ fun HomeScreen(myUid: String) {
         }
     ) { insets ->
         when (tab) {
-            0 -> ChatListScreen(myUid = myUid, modifier = Modifier.padding(insets))
+            0 -> try {
+                    ChatListScreen(myUid = myUid, modifier = Modifier.padding(insets))
+                } catch (e: Exception) {
+                    val ctx = LocalContext.current
+                    Toast.makeText(ctx, "FC: ${e.message}", Toast.LENGTH_LONG).show()
+                    android.util.Log.e("ChatListScreen", "Error: ${e.message}", e)
+                }
             1 -> ComingSoonScreen("Pembaruan")
             2 -> ComingSoonScreen("Music")
             3 -> ComingSoonScreen("Panggilan")
