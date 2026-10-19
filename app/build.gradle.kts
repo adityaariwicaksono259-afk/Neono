@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "app.neono.chat"
+    namespace = "app.neono.api"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "app.neono.chat"
+        applicationId = "app.neono.api"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

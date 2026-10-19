@@ -1,4 +1,4 @@
-package app.neono.chat
+package app.neono.api
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape

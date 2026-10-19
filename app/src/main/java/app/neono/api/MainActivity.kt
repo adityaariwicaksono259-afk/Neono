@@ -1,4 +1,4 @@
-package app.neono.chat
+package app.neono.api
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
